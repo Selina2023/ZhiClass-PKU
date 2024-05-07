@@ -1,0 +1,4 @@
+data/
+config/
+themes/
+.hugo_build*
