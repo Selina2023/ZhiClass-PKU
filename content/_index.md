@@ -9,7 +9,7 @@ date = 2024-05-05T08:41:08+08:00
 
 ## My Recent
 {{< article link="/activities/example/">}}
-{{< article link="/activities/example/">}}
+{{< article link="/activities/example_2/">}}
 
-## Researchs
-{{< article link="/posts/first/">}}
+## Selected Research
+{{< article link="/research/example/">}}
