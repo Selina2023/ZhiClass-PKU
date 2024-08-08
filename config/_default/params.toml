@@ -36,7 +36,7 @@ defaultFeaturedImage = "img/3.png" # used as default for featured images in all 
   showScrollToTop = true
 
 [homepage]
-  layout = "hero" # valid options: page, profile, hero, card, background, custom
+  layout = "background" # valid options: page, profile, hero, card, background, custom
   homepageImage = "img/background.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 5
@@ -87,7 +87,7 @@ defaultFeaturedImage = "img/3.png" # used as default for featured images in all 
   showViews = false
   showLikes = false
   showTableOfContents = false
-  showCards = true
+  showCards = false
   groupByYear = true
   cardView = true
   cardViewScreenWidth = false
