@@ -20,4 +20,5 @@
 # TODO
 - 修复显示cite.bib的问题
 - 我们不需要fork，可以换一下submodule的源
+- 写一个从bib到research index.md的python脚本
 
