@@ -17,7 +17,8 @@
         - ```./layouts\partials\article-meta\basic.html```
         - ```./layouts\partials\home\background.html```
     - 有任何问题请联系林宇辰
-
+- 8月10日
+    - 增加 modal 弹窗功能，js脚本位于 ```./layouts\partials\article-meta\basic.html```中，目前暂时用于文章CiteTag的bibtex的显示、下载，如有其他地方需要可复用。
 # TODO
 - ~~修复显示cite.bib的问题~~ 已修复
 - 我们不需要fork，可以换一下submodule的源

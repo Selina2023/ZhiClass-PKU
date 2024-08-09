@@ -1,3 +1,127 @@
+<script>
+  function openCitationPopup(citationPath) {
+    fetch(citationPath)
+        .then(response => response.text())
+        .then(data => {
+            // Create a modal div element
+            let modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            modal.style.zIndex = '1000';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+
+            // Create a content div for the modal
+            let content = document.createElement('div');
+            content.style.backgroundColor = '#fff';
+            content.style.padding = '20px';
+            content.style.borderRadius = '8px';
+            content.style.maxWidth = '80%';
+            content.style.maxHeight = '80%';
+            content.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            content.style.overflowY = 'auto';
+
+            // Add the citation data to the content div
+            let citationText = document.createElement('pre');
+            citationText.textContent = data;
+            citationText.style.backgroundColor = '#f8f8f8';
+            citationText.style.padding = '15px';
+            citationText.style.borderRadius = '5px';
+            citationText.style.boxShadow = 'inset 0 1px 3px rgba(0, 0, 0, 0.1)';
+            citationText.style.whiteSpace = 'pre-wrap';  // Ensure text wraps
+            citationText.style.wordWrap = 'break-word';  // Break long words if necessary
+            citationText.style.overflowX = 'hidden';  // Hide horizontal scrollbar
+            content.appendChild(citationText);
+
+            // Create a button container
+            let buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+            buttonContainer.style.justifyContent = 'center';
+            buttonContainer.style.marginTop = '20px';
+            buttonContainer.style.gap = '10px'; // Space between buttons
+
+            // Function to style buttons
+            function styleButton(button) {
+                button.style.border = '1px solid #ccc';
+                button.style.backgroundColor = '#f5f5f5';
+                button.style.padding = '10px 20px';
+                button.style.borderRadius = '5px';
+                button.style.cursor = 'pointer';
+                button.style.minWidth = '30px';
+                button.style.textAlign = 'center';
+                button.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                button.onmouseover = function() {
+                    button.style.backgroundColor = '#e0e0e0';
+                };
+                button.onmouseout = function() {
+                    button.style.backgroundColor = '#f5f5f5';
+                };
+            }
+
+            // Create the Copy button
+            let copyButton = document.createElement('button');
+            copyButton.textContent = 'Copy';
+            styleButton(copyButton);
+            copyButton.onclick = function() {
+                navigator.clipboard.writeText(data).then(() => {
+                    alert('Citation copied to clipboard!');
+                }).catch(err => {
+                    console.error('Error copying citation:', err);
+                });
+            };
+
+            // Create the Download button
+            let downloadButton = document.createElement('button');
+            downloadButton.textContent = 'Download';
+            styleButton(downloadButton);
+            downloadButton.onclick = function() {
+                let blob = new Blob([data], { type: 'text/plain' });
+                let url = URL.createObjectURL(blob);
+                let a = document.createElement('a');
+                a.href = url;
+                a.download = 'citation.bib';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            };
+
+            // Create the Close button
+            let closeButton = document.createElement('button');
+            closeButton.textContent = '✕'; // Using a simple cross symbol
+            styleButton(closeButton);
+            closeButton.style.backgroundColor = '#f5f5f5'; // Reset background for close button
+            closeButton.style.fontSize = '18px'; // Larger font size for emphasis
+            closeButton.onclick = function() {
+                document.body.removeChild(modal);
+            };
+
+            // Append buttons to the button container
+            buttonContainer.appendChild(copyButton);
+            buttonContainer.appendChild(downloadButton);
+            buttonContainer.appendChild(closeButton);
+
+            // Append the button container to the content div
+            content.appendChild(buttonContainer);
+
+            // Append the content to the modal
+            modal.appendChild(content);
+
+            // Append the modal to the body
+            document.body.appendChild(modal);
+        })
+        .catch(error => {
+            console.error('Error fetching citation:', error);
+            alert('Failed to load citation.');
+        });
+}
+</script>
+
 {{/* Determine the correct context and scope */}}
 {{/* This allows for different logic depending on where the partial is called */}}
 {{ $context := . }}
@@ -101,7 +225,7 @@
   {{ else if eq .LinkTitle "Video" }}
     <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ $context.Params.video }},'_self');">
   {{ else if eq .LinkTitle "Cite" }}
-      <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ printf "%s%s" $context.RelPermalink $context.Params.cite }},'_self');">
+    <span style="margin-top:0.5rem" class="mr-2" onclick="openCitationPopup('{{ printf "%s%s" $context.RelPermalink $context.Params.cite }}');">
   {{ else }}
     <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ .RelPermalink }},'_self');">
   {{ end }}
