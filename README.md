@@ -7,6 +7,7 @@
     - 现在的research文章实现了以下的功能
         - 点标题跳arxiv
         - 点标签（arxiv, github...）跳相应网站
+        - 点Cite标签跳转cite.bib
         - 作者名字加粗
         - 显示摘要
         - 请参考```./layouts\partials\article-meta\basic.html```以及```./layouts\partials\home\background.html```
@@ -18,7 +19,7 @@
     - 有任何问题请联系林宇辰
 
 # TODO
-- 修复显示cite.bib的问题
+- ~~修复显示cite.bib的问题~~ 已修复
 - 我们不需要fork，可以换一下submodule的源
 - 写一个从bib到research index.md的python脚本
 

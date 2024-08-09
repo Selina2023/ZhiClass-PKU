@@ -101,7 +101,7 @@
   {{ else if eq .LinkTitle "Video" }}
     <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ $context.Params.video }},'_self');">
   {{ else if eq .LinkTitle "Cite" }}
-      <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ $context.Params.cite }},'_self');">
+      <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ printf "%s%s" $context.RelPermalink $context.Params.cite }},'_self');">
   {{ else }}
     <span style="margin-top:0.5rem" class="mr-2" onclick="window.open({{ .RelPermalink }},'_self');">
   {{ end }}
