@@ -69,7 +69,31 @@
             styleButton(copyButton);
             copyButton.onclick = function() {
                 navigator.clipboard.writeText(data).then(() => {
-                    alert('Citation copied to clipboard!');
+                    // alert('Citation copied to clipboard!');
+                    copyButton.textContent = 'Copied';
+                    copyButton.style.backgroundColor = 'green';
+                    copyButton.style.color = 'white';
+                    copyButton.onmouseover = function() {
+                        copyButton.style.backgroundColor = 'green';
+                    };
+                    copyButton.onmouseout = function() {
+                        copyButton.style.backgroundColor = 'green';
+                    };
+                    copyButton.disabled = true;
+                    copyButton.style.cursor = 'default';
+                    setTimeout(() => {
+                        copyButton.textContent = 'Copy';
+                        copyButton.style.backgroundColor = '';
+                        copyButton.style.color = '';
+                        copyButton.onmouseover = function() {
+                            copyButton.style.backgroundColor = '#e0e0e0';
+                        };
+                        copyButton.onmouseout = function() {
+                            copyButton.style.backgroundColor = '#f5f5f5';
+                        };
+                        copyButton.disabled = false;
+                        copyButton.style.cursor = 'pointer';
+                    }, 2000);
                 }).catch(err => {
                     console.error('Error copying citation:', err);
                 });
@@ -80,6 +104,18 @@
             downloadButton.textContent = 'Download';
             styleButton(downloadButton);
             downloadButton.onclick = function() {
+                downloadButton.textContent = 'Downloaded';
+                downloadButton.style.backgroundColor = 'green';
+                downloadButton.style.color = 'white';
+                downloadButton.onmouseover = function() {
+                    downloadButton.style.backgroundColor = 'green';
+                };
+                downloadButton.onmouseout = function() {
+                    downloadButton.style.backgroundColor = 'green';
+                };
+                downloadButton.disabled = true;
+                downloadButton.style.cursor = 'default';
+
                 let blob = new Blob([data], { type: 'text/plain' });
                 let url = URL.createObjectURL(blob);
                 let a = document.createElement('a');
@@ -89,6 +125,20 @@
                 a.click();
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
+
+                setTimeout(() => {
+                    downloadButton.textContent = 'Download';
+                    downloadButton.style.backgroundColor = '';
+                    downloadButton.style.color = '';
+                    downloadButton.onmouseover = function() {
+                        downloadButton.style.backgroundColor = '#e0e0e0';
+                    };
+                    downloadButton.onmouseout = function() {
+                        downloadButton.style.backgroundColor = '#f5f5f5';
+                    };
+                    downloadButton.disabled = false;
+                    downloadButton.style.cursor = 'pointer';
+                }, 2000);
             };
 
             // Create the Close button

@@ -14,7 +14,7 @@ authors:
 highlightAuthors:
 - Razvan Pascanu
 - Matthew Lai
-cite: cite.bib # Warning: Not implemented yet
+cite: cite.bib 
 tags:
     - arxiv
     - github
