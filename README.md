@@ -22,16 +22,14 @@
     
 - 8月12日
     
-    **整合了之前的代码，大致完成了members list页面、点进去之后每个人的具体页面的框架搭建，同时进行了一些全局params的修改。**具体如下：
+    **整合了之前的代码，大致完成了members list页面、点进去之后每个人的具体页面的框架搭建，同时进行了一些全局params的修改**。具体如下：
     
     1. 将`params.toml`中[list]下的 `cardView` 从 false 改为 true. 
        - 如果是false，则在渲染list（比如members/2023 页面上每个人的缩略展示框）时不会调用 `partials/article-link/card.html`，而是采用如下的默认样式：
     
     <img src="./static/img/image-20240812232943359.png" alt="image-20240812232943359" style="zoom:50%;" />
 
-​		而原生的cardView呈现论文不美观，样式如下：
-
-<img src="./static/img/image-20240812233143462.png" alt="image-20240812233143462" style="zoom:25%;" />
+​		而原生的cardView呈现论文不美观。
 
 ​		由于呈现members需要定制化cardView，故不得不启用cardView = true. 因此对于**Research板块**的**替代方法**是在 `./Research/_index.md` 的front matter中添加 `cardView: false`。即采用override机制。
 
@@ -41,7 +39,7 @@
 
 
 
-2. 在members和具体的2021, 2022, 2023的页面，为了在这些页面不显示日期（blowfish会默认将articles按照date排序和分类，如果 `index.md` 中没有date属性，默认年份为 0001 ），在每个文件夹下的 `_index.md` 中添加 `groupByYear: false` 属性。
+1. 在members和具体的2021, 2022, 2023的页面，为了在这些页面不显示日期（blowfish会默认将articles按照date排序和分类，如果 `index.md` 中没有date属性，默认年份为 0001 ），在每个文件夹下的 `_index.md` 中添加 `groupByYear: false` 属性。
 
 
 
