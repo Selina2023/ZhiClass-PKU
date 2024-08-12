@@ -89,7 +89,7 @@ defaultFeaturedImage = "img/3.png" # used as default for featured images in all 
   showTableOfContents = false
   showCards = false
   groupByYear = true
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
