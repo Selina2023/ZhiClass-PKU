@@ -1,0 +1,89 @@
+{{ $specialStyles := resources.Get "css/wowchemy.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $specialStyles.RelPermalink }}" integrity="{{ $specialStyles.Data.Integrity }}">
+
+<div class="page-body">
+        <section id="profile-page" class="pt-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Profile Image and Basic Information -->
+                    <div class="col-12 col-lg-4">
+                        <div id="profile">
+                            <img class="avatar avatar-circle" width="270" height="270" src="{{ .Params.image }}" alt="{{ .Params.name }}">
+                            <div class="portrait-title">
+                                <h2>{{ .Params.name }}</h2>
+                                <h3>{{ .Params.memberType }}</h3>
+                                {{/*  <h3>{{ .Params.title }}</h3>
+                                <h3><span>{{ .Params.organization }}</span></h3>  */}}
+                            </div>
+                            <!-- Social Icons -->
+                            <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500 justify-center">
+                                {{ with .Params.links }}
+                                  {{ range $links := . }}
+                                    {{ range $name, $url := $links }}
+                                      <a
+                                        class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+                                        href="{{ $url | safeURL }}"
+                                        target="_blank"
+                                        aria-label="{{ $name | title }}"
+                                        rel="me noopener noreferrer"
+                                        >
+                                        {{ $icon := resources.Get (print "icons/" $name ".svg") }}
+                                        {{ if $icon }}
+                                          <span class="relative block icon">
+                                            {{ $icon.Content | safeHTML }}
+                                          </span>
+                                        {{ end }}
+                                        </a
+                                      >
+                                    {{ end }}
+                                  {{ end }}
+                                {{ end }}
+                              </div>
+                        </div>
+                    </div>
+                    <!-- Bio and Other Information -->
+                    <div class="col-12 col-lg-8">
+                        <div class="article-style">
+                            {{ .Params.bio }}
+                        </div>
+                        <div class="row">
+                            <!-- Interests Section -->
+                            <div class="col-md-5">
+                                <div class="section-subheading">Interests</div>
+                                <ul class="ul-interests mb-0">
+                                    {{ range .Params.interests }}
+                                    <li>{{ . }}</li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            <!-- Education Section -->
+                            <div class="col-md-7">
+                                <div class="section-subheading">Education</div>
+                                <ul class="ul-edu fa-ul mb-0">
+                                    {{ range .Params.education }}
+                                    <li>
+                                        <i class="fa-li fas fa-graduation-cap"></i>
+                                        <div class="description">
+                                            <p class="course">{{ .degree }}</p>
+                                            <p class="institution">{{ .institution }}</p>
+                                        </div>
+                                    </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <div class="article-widget content-widget-hr">
+            <h3>Latest</h3>
+            <ul>
+                {{ range .Params.publications }}
+                <li><a href="{{ .url }}">{{ .title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+</div>

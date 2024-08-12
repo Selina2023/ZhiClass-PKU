@@ -1,0 +1,10 @@
+.thumbnail_circle {  /* 用于member的缩略图，头像用圆形 */
+  width: 150px; 
+  height: 150px; /* 与宽度相同，确保是正方形 */  
+  border-radius: 50%; /* 创建圆形 */  
+  background-size: cover; /* 覆盖整个div */  
+  background-position: center; /* 图片居中 */  
+  background-repeat: no-repeat; /* 防止图片重复 */  
+  margin-left: auto;
+  margin-right: auto;
+}
