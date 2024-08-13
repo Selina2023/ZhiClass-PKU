@@ -18,7 +18,8 @@
 
             // Create a content div for the modal
             let content = document.createElement('div');
-            content.style.backgroundColor = '#fff';
+            content.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--popup-background');
+            content.style.color = getComputedStyle(document.documentElement).getPropertyValue('--popup-color');
             content.style.padding = '20px';
             content.style.borderRadius = '8px';
             content.style.maxWidth = '80%';
@@ -29,7 +30,8 @@
             // Add the citation data to the content div
             let citationText = document.createElement('pre');
             citationText.textContent = data;
-            citationText.style.backgroundColor = '#f8f8f8';
+            citationText.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--citation-background');
+            citationText.style.color = getComputedStyle(document.documentElement).getPropertyValue('--citation-color');
             citationText.style.padding = '15px';
             citationText.style.borderRadius = '5px';
             citationText.style.boxShadow = 'inset 0 1px 3px rgba(0, 0, 0, 0.1)';
@@ -48,7 +50,8 @@
             // Function to style buttons
             function styleButton(button) {
                 button.style.border = '1px solid #ccc';
-                button.style.backgroundColor = '#f5f5f5';
+                button.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-background');
+                button.style.color = getComputedStyle(document.documentElement).getPropertyValue('--button-color');
                 button.style.padding = '10px 20px';
                 button.style.borderRadius = '5px';
                 button.style.cursor = 'pointer';
@@ -56,10 +59,10 @@
                 button.style.textAlign = 'center';
                 button.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
                 button.onmouseover = function() {
-                    button.style.backgroundColor = '#e0e0e0';
+                    button.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-hover-background');
                 };
                 button.onmouseout = function() {
-                    button.style.backgroundColor = '#f5f5f5';
+                    button.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-background');
                 };
             }
 
@@ -86,10 +89,10 @@
                         copyButton.style.backgroundColor = '';
                         copyButton.style.color = '';
                         copyButton.onmouseover = function() {
-                            copyButton.style.backgroundColor = '#e0e0e0';
+                            copyButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-hover-background');
                         };
                         copyButton.onmouseout = function() {
-                            copyButton.style.backgroundColor = '#f5f5f5';
+                            copyButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-background');
                         };
                         copyButton.disabled = false;
                         copyButton.style.cursor = 'pointer';
@@ -131,10 +134,10 @@
                     downloadButton.style.backgroundColor = '';
                     downloadButton.style.color = '';
                     downloadButton.onmouseover = function() {
-                        downloadButton.style.backgroundColor = '#e0e0e0';
+                        downloadButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-hover-background');
                     };
                     downloadButton.onmouseout = function() {
-                        downloadButton.style.backgroundColor = '#f5f5f5';
+                        downloadButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--button-background');
                     };
                     downloadButton.disabled = false;
                     downloadButton.style.cursor = 'pointer';
@@ -145,7 +148,7 @@
             let closeButton = document.createElement('button');
             closeButton.textContent = '✕'; // Using a simple cross symbol
             styleButton(closeButton);
-            closeButton.style.backgroundColor = '#f5f5f5'; // Reset background for close button
+            closeButton.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--popup-background'); // Reset background for close button
             closeButton.style.fontSize = '18px'; // Larger font size for emphasis
             closeButton.onclick = function() {
                 document.body.removeChild(modal);
@@ -169,7 +172,37 @@
             console.error('Error fetching citation:', error);
             alert('Failed to load citation.');
         });
-}
+  }
+
+  // Helper function to dynamically set dark mode styles
+  function setDarkModeStyles() {
+      const root = document.documentElement;
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (isDarkMode) {
+          root.style.setProperty('--popup-background', '#333');
+          root.style.setProperty('--popup-color', '#eee');
+          root.style.setProperty('--citation-background', '#444');
+          root.style.setProperty('--citation-color', '#ddd');
+          root.style.setProperty('--button-background', '#555');
+          root.style.setProperty('--button-color', '#fff');
+          root.style.setProperty('--button-hover-background', '#666');
+      } else {
+          root.style.setProperty('--popup-background', '#fff');
+          root.style.setProperty('--popup-color', '#000');
+          root.style.setProperty('--citation-background', '#f8f8f8');
+          root.style.setProperty('--citation-color', '#333');
+          root.style.setProperty('--button-background', '#f5f5f5');
+          root.style.setProperty('--button-color', '#000');
+          root.style.setProperty('--button-hover-background', '#e0e0e0');
+      }
+  }
+
+  // Initialize styles on load
+  setDarkModeStyles();
+
+  // Listen for changes in the user's color scheme preference
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setDarkModeStyles);
 </script>
 
 {{/* Determine the correct context and scope */}}

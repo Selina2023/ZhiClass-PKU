@@ -1,4 +1,175 @@
 {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+<div class="carousel-container">
+    <style>
+        .carousel-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .carousel-slide {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            position: relative;
+            width: 33.3333%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .description-box {
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+            width: 100%;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 30px;
+            /* 行距 */
+            line-height: 1.1;
+            border-radius: 5px;
+            box-sizing: border-box;
+            max-height: 50%;
+            overflow-y: auto;
+            word-wrap: break-word; /* 自动换行 */
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            z-index: 100;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .indicator {
+            cursor: pointer;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.6);
+            margin: 0 5px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .active-indicator {
+            background-color: rgba(255, 255, 255, 1);
+        }
+    </style>
+
+    <div class="carousel-slide">
+        <div class="carousel-image">
+            <img src="https://www.imgonline.com.ua/examples/impose-picture-on-another-picture.jpg" alt="Image 1">
+            <div class="description-box">
+                <p>This is the first image's description. It can be quite lengthy and provide detailed information about the image, including context, background, and any relevant data that helps the viewer understand its significance.</p>
+            </div>
+        </div>
+        <div class="carousel-image">
+            <img src="https://www.imgonline.com.ua/examples/orange-flowers.jpg" alt="Image 2">
+            <div class="description-box">
+                <p>This is the second image's description. You can add any information about the flowers, their species, the location where the photo was taken, or any interesting facts about them.</p>
+            </div>
+        </div>
+        <div class="carousel-image">
+            <img src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg" alt="Image 3">
+            <div class="description-box">
+                <p>This is the third image's description. This text might discuss the importance of bees, their role in pollination, or specific details about the type of daisy depicted.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="carousel-indicators">
+        <span class="indicator active-indicator" onclick="currentSlide(1)"></span>
+        <span class="indicator" onclick="currentSlide(2)"></span>
+        <span class="indicator" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        const slide = document.querySelector('.carousel-slide');
+        const images = document.querySelectorAll('.carousel-image');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlides(n) {
+            if (n > images.length) slideIndex = 1;
+            if (n < 1) slideIndex = images.length;
+
+            slide.style.transform = `translateX(-${(slideIndex - 1) * 33.3333}%)`;
+
+            indicators.forEach(indicator => indicator.classList.remove('active-indicator'));
+            indicators[slideIndex - 1].classList.add('active-indicator');
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
+        document.querySelector('.next').addEventListener('click', () => plusSlides(1));
+
+        // Initial call to set up the carousel
+        showSlides(slideIndex);
+
+        // Optional: Add touch swipe functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        slide.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        slide.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                plusSlides(1);
+            } else if (touchEndX - touchStartX > 50) {
+                plusSlides(-1);
+            }
+        }, false);
+    </script>
+</div>
+
+<br>
+<br>
 <article class="max-w-full prose dark:prose-invert">
     <div class="relative">
         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
@@ -30,45 +201,59 @@
                     </div>
                     {{ end }}
                 </div>
-                <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
-                    {{ with .Site.Author.image }}
-                        {{ $authorImage := "" }}
-                        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-                            {{ $authorImage = resources.GetRemote . }}
-                        {{ else }}
-                            {{ $authorImage = resources.Get . }}
-                        {{ end }}
-                        {{ if $authorImage }}
-                            {{ if not $disableImageOptimization }}
-                                {{ $authorImage = $authorImage.Fill "288x288" }}
+                
+                <div class="flex flex-row items-start justify-between px-4 py-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 shadow-lg dark:shadow-xl rounded-3xl transition-colors duration-500">
+                    <!-- Left column: Existing profile information -->
+                    <div class="flex flex-col items-center justify-center text-center" style="flex: 1;">
+                        {{ with .Site.Author.image }}
+                            {{ $authorImage := "" }}
+                            {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+                                {{ $authorImage = resources.GetRemote . }}
+                            {{ else }}
+                                {{ $authorImage = resources.Get . }}
                             {{ end }}
-                            <img class="mb-2 rounded-full h-36 w-36" width="144" height="144"
-                                alt="{{ $.Site.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
-                        {{ end }}
-                    {{ end }}
-                    <h1 class="mb-2 text-4xl  font-extrabold text-neutral-800 dark:text-neutral-200">
-                        {{ .Site.Author.name | default .Site.Title }}
-                    </h1>
-                    {{ with .Site.Author.headline }}
-                    
-                    <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                        {{ . | markdownify }}
-                    </h2>
-                    {{ end }}
-                    <div class="mt-3 mb-10 text-2xl">
-                        {{ with .Site.Author.links }}
-                        <div class="flex flex-wrap">
-                            {{ range $links := . }}
-                            {{ range $name, $url := $links }}
-                            <a class="px-1 hover:text-primary-400 text-primary-800 dark:text-primary-200" href="{{ $url }}" target="_blank"
-                                aria-label="{{ $name | title }}" rel="me noopener noreferrer">{{ partial
-                                "icon.html" $name }}</a>
+                            {{ if $authorImage }}
+                                {{ if not $disableImageOptimization }}
+                                    {{ $authorImage = $authorImage.Fill "288x288" }}
+                                {{ end }}
+                                <img class="mb-2 rounded-full h-36 w-36" width="144" height="144"
+                                    alt="{{ $.Site.Author.name | default "Author" }}" src="{{ $authorImage.RelPermalink }}" />
                             {{ end }}
+                        {{ end }}
+                        <h1 class="mb-2 text-4xl font-extrabold text-gray-800 dark:text-gray-100">
+                            {{ .Site.Author.name | default .Site.Title }}
+                        </h1>
+                        {{ with .Site.Author.headline }}
+                            <h2 class="mt-0 mb-0 text-xl text-gray-700 dark:text-gray-300">
+                                {{ . | markdownify }}
+                            </h2>
+                        {{ end }}
+                        <div class="mt-3 mb-10 text-2xl">
+                            {{ with .Site.Author.links }}
+                            <div class="flex flex-wrap justify-center">
+                                {{ range $links := . }}
+                                {{ range $name, $url := $links }}
+                                <a class="px-1 hover:text-blue-600 dark:hover:text-blue-400 text-blue-800 dark:text-blue-300" href="{{ $url }}" target="_blank"
+                                    aria-label="{{ $name | title }}" rel="me noopener noreferrer">{{ partial
+                                    "icon.html" $name }}</a>
+                                {{ end }}
+                                {{ end }}
+                            </div>
                             {{ end }}
                         </div>
-                        {{ end }}   
+                    </div>
+                    
+                    <!-- Right column: New introduction text -->
+                    <div class="flex flex-col justify-center pl-8" style="flex: 1.5;">
+                        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Welcome to My Page</h2>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            Here you can add your introduction text. Describe yourself, your interests, your work, or anything else you'd like visitors to know. This section provides a great opportunity to connect with your audience and share your story.Here you can add your introduction text. Describe yourself, your interests, your work, or anything else you'd like visitors to know. This section provides a great opportunity to connect with your audience and share your story.
+                        </p>
                     </div>
                 </div>
+                
+                <br>
+
                 <!-- <div class="relative px-1 py-1 flex flex-col"> -->
                 <span style="font-family: Times New Roman, Times, serif;">
                     <section class="max-w-full text-xl prose dark:prose-invert">{{ .Content }}</section>
@@ -78,6 +263,7 @@
         </div>
     </div>
 </article>
+
 <section>
     {{ partial "recent-articles/main.html" . }}
 </section>
@@ -90,4 +276,5 @@
         background_blur.style.opacity = (scroll / 300)
     });
 </script>
+
 {{ end }}
