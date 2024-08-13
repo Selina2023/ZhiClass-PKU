@@ -29,7 +29,7 @@
     
     <img src="./static/img/image-20240812232943359.png" alt="image-20240812232943359" style="zoom:50%;" />
 
-​		而原生的cardView呈现论文不美观。
+​而原生的cardView呈现论文不美观。
 
 ​		由于呈现members需要定制化cardView，故不得不启用cardView = true. 因此对于**Research板块**的**替代方法**是在 `./Research/_index.md` 的front matter中添加 `cardView: false`。即采用override机制。
 
@@ -108,9 +108,17 @@ publications:
 
 修改源码的方式仍然沿用[这篇文章](https://blowfish.page/zh-cn/docs/advanced-customisation/)，后续修改的同学请注意，你想要修改的文件是否之前已被修改过。
 
+
+- 8月13日
+    - UI与视觉效果修改
+    - `layouts/partials/home/background.html` ： homepage增加了 carousel画廊功能，支持图片左右切换、显示文字描述，主要用于展示重大正式活动。（目前该模块中图片与描述均在html中写死，暂未提供从hugo本地文件直接生成的功能）由于与全局模板文件冲突，该横向画廊只能采取先生成后手动修改的方式，提供了脚本`changeindexhtml.py`，每次网页生成后需运行一次即可（如有需要可添加守护进程，监测文件系统修改自动运行）。 homepage全局禁用了图片缩放（不影响其他页面）。
+    - `layouts/partials/home/background.html` ：原先标题挪到左下方，右侧添加introduction板块。
+    - `params.toml`中的全局颜色主题从 `fire` 改为 `blowfish`
+    - 默认全局背景改为`assets/img/background.svg`，提供动态图形背景以及logo与slogan，在未设置特殊背景的全局文章/list页面可见。
+
 # TODO
 
 - ~~修复显示cite.bib的问题~~ 已修复
 - 我们不需要fork，可以换一下submodule的源
 - 写一个从bib到research index.md的python脚本
-
+- homepage加入hugo模板支持与外链

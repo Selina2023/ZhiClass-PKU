@@ -1,0 +1,231 @@
+<svg id="eF5xupsjhLw1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 400" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" width="350" height="200">
+  <style><![CDATA[
+    #eTLPI73xHnp2_tr {
+      animation: eTLPI73xHnp2_tr__tr 2s ease-out 1 normal forwards;
+      transform-origin: 43% 20%;
+    }
+    @keyframes eTLPI73xHnp2_tr__tr {
+      0% {transform: translate(50px,60px) rotate(0deg) scale(0.1);}
+      100% {transform: translate(50px,60px) rotate(360deg) scale(1);}
+    }
+    .background-text {
+      font-size: 30px;
+      fill: rgba(255,255,255,1);
+      font-family: '全新硬笔行书简', monospace;
+    }
+    .front-text {
+      font-size: 30px;
+      fill: rgba(0,0,0,0.6);
+      font-family: '全新硬笔行书简', monospace;
+    }
+    #slogan tspan {
+      opacity: 0;
+      animation: typewriter 3s linear infinite;
+    }
+    @keyframes typewriter {
+      0%, 100% { opacity: 0; }
+      8.33%, 75% { opacity: 1; }
+    }
+    #slogan tspan:nth-child(1) { animation-delay: 1s; }
+    #slogan tspan:nth-child(2) { animation-delay: 1.15s; }
+    #slogan tspan:nth-child(3) { animation-delay: 1.3s; }
+    #slogan tspan:nth-child(4) { animation-delay: 1.45s; }
+    #slogan tspan:nth-child(5) { animation-delay: 1.6s; }
+    #slogan tspan:nth-child(6) { animation-delay: 1.75s; }
+    #slogan tspan:nth-child(7) { animation-delay: 1.9s; }
+    #slogan tspan:nth-child(8) { animation-delay: 2.05s; }
+    #slogan tspan:nth-child(9) { animation-delay: 2.2s; }
+    #slogan tspan:nth-child(10) { animation-delay: 2.35s; }
+    #slogan tspan:nth-child(11) { animation-delay: 2.5s; }
+    #eF5xupsjhLw3_tr {
+      animation: eF5xupsjhLw3_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw3_tr__tr {
+      0% {
+        transform: translate(1485.265524px, 923.716668px) rotate(107.849898deg)
+      }
+      100% {
+        transform: translate(1485.265524px, 923.716668px) rotate(252.130785deg)
+      }
+    }
+
+    #eF5xupsjhLw4_tr {
+      animation: eF5xupsjhLw4_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw4_tr__tr {
+      0% {
+        transform: translate(1106.552084px, 11.479169px) rotate(-104.755169deg)
+      }
+      100% {
+        transform: translate(1106.552084px, 11.479169px) rotate(-194.755169deg)
+      }
+    }
+
+    #eF5xupsjhLw5_tr {
+      animation: eF5xupsjhLw5_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw5_tr__tr {
+      0% {
+        transform: translate(77.951956px, 316.57267px) rotate(179.858074deg)
+      }
+      100% {
+        transform: translate(77.951956px, 316.57267px) rotate(107.849898deg)
+      }
+    }
+
+    #eF5xupsjhLw6_to {
+      animation: eF5xupsjhLw6_to__to 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw6_to__to {
+      0% {
+        offset-distance: 0%
+      }
+      50% {
+        offset-distance: 49.378847%
+      }
+      100% {
+        offset-distance: 100%
+      }
+    }
+
+    #eF5xupsjhLw7_to {
+      animation: eF5xupsjhLw7_to__to 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw7_to__to {
+      0% {
+        transform: translate(1625.977098px, 922.267927px)
+      }
+      33.333333% {
+        transform: translate(1567.951321px, 818.908093px)
+      }
+      66.666667% {
+        transform: translate(1427.428392px, 987.533986px)
+      }
+      100% {
+        transform: translate(1625.977098px, 922.267927px)
+      }
+    }
+
+    #eF5xupsjhLw8_to {
+      animation: eF5xupsjhLw8_to__to 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw8_to__to {
+      0% {
+        offset-distance: 0%
+      }
+      50% {
+        offset-distance: 50.699739%
+      }
+      100% {
+        offset-distance: 100%
+      }
+    }
+
+    #eF5xupsjhLw9_tr {
+      animation: eF5xupsjhLw9_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw9_tr__tr {
+      0% {
+        transform: translate(1332.072109px, 696.229369px) rotate(179.858074deg)
+      }
+      100% {
+        transform: translate(1332.072109px, 696.229369px) rotate(323.892738deg)
+      }
+    }
+
+    #eF5xupsjhLw10_tr {
+      animation: eF5xupsjhLw10_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw10_tr__tr {
+      0% {
+        transform: translate(820.871069px, 284.144659px) rotate(179.858074deg)
+      }
+      100% {
+        transform: translate(820.871069px, 284.144659px) rotate(-35.842484deg)
+      }
+    }
+
+    #eF5xupsjhLw11_tr {
+      animation: eF5xupsjhLw11_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw11_tr__tr {
+      0% {
+        transform: translate(762.743219px, 965.073357px) rotate(0deg)
+      }
+      100% {
+        transform: translate(762.743219px, 965.073357px) rotate(360deg)
+      }
+    }
+
+    #eF5xupsjhLw12_tr {
+      animation: eF5xupsjhLw12_tr__tr 12000ms linear infinite normal forwards
+    }
+    @keyframes eF5xupsjhLw12_tr__tr {
+      0% {
+        transform: translate(1474.519794px, 224.809739px) rotate(390.798193deg)
+      }
+      100% {
+        transform: translate(1474.519794px, 224.809739px) rotate(30.798193deg)
+      }
+    }
+  ]]></style>
+  
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.6)" />
+    </filter>
+    <filter id="text-shadow">
+      <feDropShadow dx="0.5" dy="0.5" stdDeviation="3" flood-color="rgba(0, 0, 0, 0.6)" />
+    </filter>
+  </defs>
+
+  <g transform="matrix(.288384 0 0 0.288384 0.446734-9.821674)">
+    <g id="eF5xupsjhLw3_tr" transform="translate(1485.265524,923.716668) rotate(107.849898)">
+      <polygon points="0,-187.908605 178.711703,-58.066952 110.449907,152.021255 -110.449907,152.021255 -178.711703,-58.066952 0,-187.908605" transform="scale(3.947276,3.947276) translate(0,0)" fill="#4a90e2" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw4_tr" transform="translate(1106.552084,11.479169) rotate(-104.755169)">
+      <rect width="274.170362" height="274.170362" rx="0" ry="0" transform="scale(2.383871,2.383871) translate(-137.085181,-137.085181)" fill="#5c6bc0" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw5_tr" transform="translate(77.951956,316.57267) rotate(179.858074)">
+      <polygon points="0,-187.908605 178.711703,-58.066952 110.449907,152.021255 -110.449907,152.021255 -178.711703,-58.066952 0,-187.908605" transform="scale(3.253384,3.253384) translate(0,0)" fill="#81d4fa" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw6_to" style="offset-path:path('M182.879698,901.477028C182.879698,819.603496,543.979817,653.846134,593.96611,782.977375C643.952403,912.108616,182.879698,986.922985,182.879698,901.477028');offset-rotate:0deg">
+      <ellipse rx="289.447928" ry="289.447928" transform="scale(0.232635,0.232635) translate(0,0)" fill="#039be5" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw7_to" transform="translate(1625.977098,922.267927)">
+      <ellipse rx="289.447928" ry="289.447928" transform="scale(0.080091,0.080091) translate(0,0)" fill="#3949ab" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw8_to" style="offset-path:path('M1220.487918,290.262889C1110.853792,377.293206,903.033468,181.544933,1184.090696,96.285342C1465.147924,11.025751,1334.309017,201.397504,1220.487918,290.262888');offset-rotate:0deg">
+      <ellipse rx="289.447928" ry="289.447928" transform="scale(0.107632,0.107632) translate(0,0)" fill="#b3e5fc" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw9_tr" transform="translate(1332.072109,696.229369) rotate(179.858074)">
+      <polygon points="0,-187.908605 178.711703,-58.066952 110.449907,152.021255 -110.449907,152.021255 -178.711703,-58.066952 0,-187.908605" transform="scale(1.200094,1.200094) translate(0,0)" fill="#0288d1" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw10_tr" transform="translate(820.871069,284.144659) rotate(179.858074)">
+      <polygon points="0,-187.908605 178.711703,-58.066952 110.449907,152.021255 -110.449907,152.021255 -178.711703,-58.066952 0,-187.908605" transform="scale(0.6936,0.6936) translate(0,0)" fill="#64b5f6" stroke-width="0"/>
+    </g>
+    <g id="eF5xupsjhLw11_tr" transform="translate(762.743219,965.073357) rotate(0)">
+      <path d="M0,0v277.977304L234.170207,138.840986L0,0Z" transform="scale(1.31015,1.31015) translate(-128.822737,-138.988652)" fill="#4fc3f7" stroke-width="3.6"/>
+    </g>
+    <g id="eF5xupsjhLw12_tr" transform="translate(1474.519794,224.809739) rotate(390.798193)">
+      <path d="M0,0v277.977304L234.170207,138.840986L0,0Z" transform="scale(0.512094,0.512094) translate(-128.822737,-138.988652)" fill="#42a5f5" stroke-width="3.6"/>
+    </g>
+  </g>
+  <!-- <circle id="eTLPI73xHnp3" r="300" transform="matrix(1 0 0 1 350 140)" fill="none" stroke="rgb(247,248,249)" stroke-width="50" stroke-miterlimit="40"/>-->
+  <g id="eTLPI73xHnp2_tr" transform="translate(0,0) rotate(0)" filter="url(#shadow)">
+    <!-- 背景文本 -->
+    <text x="300" y="100" font-size="120" text-anchor="middle" fill="rgba(0,0,0,0.3)" font-family="华文行楷" dy=".2em" transform="translate(2,2)">智</text>
+    <!-- 前景文本 -->
+    <text x="300" y="100" font-size="120" text-anchor="middle" fill="rgb(247,248,249)" font-family="华文行楷" dy=".2em">智</text>
+  </g>
+  <g id="slogan" transform="translate(0,0) rotate(0)" filter="url(text-shadow)">
+    <text class="front-text" x="165" y="185" fill="rgba(0,0,0,0.3)" transform="translate(0.5,0.5)">
+      <tspan>为</tspan><tspan>科</tspan><tspan>技</tspan><tspan>立</tspan><tspan>心</tspan><tspan>　　</tspan>
+      <tspan>为</tspan><tspan>人</tspan><tspan>文</tspan><tspan>赋</tspan><tspan>理</tspan>
+    </text>
+    <text class="background-text" x="165" y="185" fill="rgba(247,248,249,1)">
+      <tspan>为</tspan><tspan>科</tspan><tspan>技</tspan><tspan>立</tspan><tspan>心</tspan><tspan>　　</tspan>
+      <tspan>为</tspan><tspan>人</tspan><tspan>文</tspan><tspan>赋</tspan><tspan>理</tspan>
+    </text>
+  </g>
+</svg>
