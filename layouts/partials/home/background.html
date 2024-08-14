@@ -4,8 +4,9 @@
         .carousel-container {
             position: relative;
             width: 100vw;
-            height: 100vh;
+            height: 75vh;
             overflow: hidden;
+            z-index: 1;
         }
 
         .carousel-slide {
@@ -21,7 +22,7 @@
             position: relative;
             width: 33.3333%;
             height: 100%;
-            object-fit: cover;
+            object-fit: fill;
             flex-shrink: 0;
         }
 
@@ -29,18 +30,36 @@
             position: absolute;
             bottom: 0%;
             left: 0%;
-            width: 100%;
+            width: 35%;
             padding: 50px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-size: 30px;
-            /* 行距 */
             line-height: 1.1;
             border-radius: 5px;
             box-sizing: border-box;
             max-height: 50%;
             overflow-y: auto;
-            word-wrap: break-word; /* 自动换行 */
+            word-wrap: break-word;
+        }
+
+        .description-box:hover {
+            background-color: rgba(0, 12, 67, 0.5);
+        }
+
+        .description-box p {
+            margin: 0;
+        }
+
+        .description-box a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .description-box a:hover {
+            border-bottom: 1px solid white;
         }
 
         .prev,
@@ -94,19 +113,19 @@
         <div class="carousel-image">
             <img src="https://www.imgonline.com.ua/examples/impose-picture-on-another-picture.jpg" alt="Image 1">
             <div class="description-box">
-                <p>This is the first image's description. It can be quite lengthy and provide detailed information about the image, including context, background, and any relevant data that helps the viewer understand its significance.</p>
+                <p><a href="https://example.com" target="_blank">2024届智班成立仪式举行</a></p>
             </div>
         </div>
         <div class="carousel-image">
             <img src="https://www.imgonline.com.ua/examples/orange-flowers.jpg" alt="Image 2">
             <div class="description-box">
-                <p>This is the second image's description. You can add any information about the flowers, their species, the location where the photo was taken, or any interesting facts about them.</p>
+                <p><a href="https://example.com" target="_blank">2025届智班成立仪式举行</a></p>
             </div>
         </div>
         <div class="carousel-image">
             <img src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg" alt="Image 3">
             <div class="description-box">
-                <p>This is the third image's description. This text might discuss the importance of bees, their role in pollination, or specific details about the type of daisy depicted.</p>
+                <p><a href="https://example.com" target="_blank">2026届智班成立仪式举行</a></p>
             </div>
         </div>
     </div>
@@ -146,10 +165,8 @@
         document.querySelector('.prev').addEventListener('click', () => plusSlides(-1));
         document.querySelector('.next').addEventListener('click', () => plusSlides(1));
 
-        // Initial call to set up the carousel
         showSlides(slideIndex);
 
-        // Optional: Add touch swipe functionality
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -168,7 +185,7 @@
     </script>
 </div>
 
-<br>
+
 <br>
 <article class="max-w-full prose dark:prose-invert">
     <div class="relative">
@@ -201,8 +218,15 @@
                     </div>
                     {{ end }}
                 </div>
-                
-                <div class="flex flex-row items-start justify-between px-4 py-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 shadow-lg dark:shadow-xl rounded-3xl transition-colors duration-500">
+                <style>
+                .style1 {
+                    
+                    width: 95%; /* 例如将宽度设置为原来的 80% */
+                    margin: 20px auto; /* 居中并增加上下边距 */
+                    padding: 20px; /* 添加内边距，使内容不会紧贴边框 */
+                  }
+                </style>
+                <div class="relative flex flex-row style1 items-start justify-between px-6 py-6 rounded-2xl transition-colors duration-500 thumbnailshadow">
                     <!-- Left column: Existing profile information -->
                     <div class="flex flex-col items-center justify-center text-center" style="flex: 1;">
                         {{ with .Site.Author.image }}
