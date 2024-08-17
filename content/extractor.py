@@ -47,6 +47,9 @@ def parse_article(html):
     # 并且作者是多个，可以从中提取出来
     author_elements = soup.find_all('span', class_='rich_media_meta_text')
     authors = [author.get_text(strip=True) for author in author_elements]
+    if not authors:
+        authors = ["智学会"]
+
 
     return {
         "title": title,
@@ -78,10 +81,10 @@ def save_md_file(md_content, filename):
     print(f"File saved as {filename}")
 
 def main():
-    url = "https://mp.weixin.qq.com/s/gH0iiIK2i10G3Q1bBA0vlg"
+    url = "https://mp.weixin.qq.com/s/8iRJp-JQ_tUN9MDLUVdp9g"
     html = fetch_wechat_article(url)
     article_info = parse_article(html)
-    output_dir = "./activities/2024-03-04_0/"
+    output_dir = "./activities/2022-11-03_0/"
     #parse date from output_dir
     date = re.search(r'\d{4}-\d{2}-\d{2}', output_dir).group(0)
     # import pdb; pdb.set_trace()
