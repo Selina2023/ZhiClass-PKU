@@ -8,5 +8,5 @@ authors:
     - "爱读书的智读会"
 showAuthorBadges: true
 summary: 
-tags: [其他]
+tags: [智读]
 ---
