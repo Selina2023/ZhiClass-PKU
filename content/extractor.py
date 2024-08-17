@@ -16,15 +16,16 @@ def fetch_wechat_article(url):
 def parse_article(html):
     soup = BeautifulSoup(html, 'html.parser')
 
-
+    # import pdb; pdb.set_trace()
     
     title = soup.find('h1', class_='rich_media_title').get_text(strip=True)
     # extract tag from title (before ' | ')
     tag = "其他"
     tags = re.search(r'(.+?)\s\|', title)
  
-    if tag != "其他":
+    if tags:
         tag = tags.group(1)
+    
 
     # import pdb; pdb.set_trace()
     # 解析发布日期
@@ -77,10 +78,10 @@ def save_md_file(md_content, filename):
     print(f"File saved as {filename}")
 
 def main():
-    url = "https://mp.weixin.qq.com/s/agXIKTMTQiOadTF1Lh2F6A"
+    url = "https://mp.weixin.qq.com/s/gH0iiIK2i10G3Q1bBA0vlg"
     html = fetch_wechat_article(url)
     article_info = parse_article(html)
-    output_dir = "./activities/2024-06-28_0/"
+    output_dir = "./activities/2024-03-04_0/"
     #parse date from output_dir
     date = re.search(r'\d{4}-\d{2}-\d{2}', output_dir).group(0)
     # import pdb; pdb.set_trace()
