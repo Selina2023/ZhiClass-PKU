@@ -75,15 +75,16 @@
 ---
 name: "Lunar"
 isMember: true
-image: "./featured.jpeg"
+image: "./featured.jpeg" # 照片命名成featured.jpeg
 memberType: "2023级智班"
 bio: "Lorem ipsum dolor sit amet ..."
 
 links: [
-    { github: "https://github.com/NiuYida"},
-    { link: "https://link-to-some-website.com/" },
-    { facebook: "https://facebook.com/username" }
+    { github: "https://github.com/someone"},
+    { envelope: "someone@stu.pku.edu.cn/"},
+    { link: "url-to-one's-home-page" } # 个人主页
 ]
+
 interests:
     - Robotics
     - Manipulation 
@@ -94,9 +95,9 @@ education:
 
 publications:
   - title: "Interactive Reasoning"
-    url: "/themes/interactive/"
+    url: "https://link-to-some-webpage.com"
   - title: "[IROS22] Sequential Manipulation Planning on Scene Graph"
-    url: "/publication/vkc-planning2022iros/"
+    url: "https://link-to-some-webpage.com"
 ---
 ```
 
