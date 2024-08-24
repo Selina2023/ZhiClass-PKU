@@ -49,6 +49,12 @@
   weight = 40
 
   [[main]]
+  name = "2024"
+  parent = "Members"
+  pageRef = "members/2024"
+  weight = 40
+
+  [[main]]
   name = "Research"
   pageRef = "research"
   weight = 50
