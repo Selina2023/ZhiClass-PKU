@@ -8,7 +8,27 @@
                     <!-- Profile Image and Basic Information -->
                     <div class="col-12 col-lg-4">
                         <div id="profile">
-                            <img class="avatar avatar-circle" width="270" height="270" src="{{ .Params.image }}" alt="{{ .Params.name }}">
+                            <!--检测是否存在image，如果存在则展示，否则查找feature图片，如果有则展示，都没有则展示site默认图片-->
+                            {{- with $.Params.images -}}
+                            {{- range first 6 . }}
+                            <meta property="og:image" content="{{ . | absURL }}" />{{ end -}}
+                            {{- else -}}
+                            {{- $images := $.Resources.ByType "image" -}}
+                            {{- $featured := $images.GetMatch "*feature*" -}}
+                            {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+                            {{ if and .Params.featureimage (not $featured) }}
+                            {{- $url := .Params.featureimage -}}
+                            {{ $featured = resources.GetRemote $url }}
+                            {{ end }}
+                            {{- if not $featured }}{{ with .Site.Params.defaultFeaturedImage }}{{ $featured = resources.Get . }}{{ end }}{{ end -}}
+                            {{ if .Params.hideFeatureImage }}{{ $featured = false }}{{ end }}
+                            {{- with $featured -}}
+                            <img class="avatar avatar-circle shadow-xl" width="270" height="270" src="{{ $featured }}" alt="{{ .Params.name }}">
+                            {{- else -}}
+                            {{- with $.Site.Params.images }}
+                            <img class="avatar avatar-circle shadow-xl" width="270" height="270" src="{{ $featured }}" alt="{{ .Params.name }}">{{ end -}}
+                            {{- end -}}
+                            {{- end -}}
                             <div class="portrait-title">
                                 <h2>{{ .Params.name }}</h2>
                                 <h3>{{ .Params.memberType }}</h3>

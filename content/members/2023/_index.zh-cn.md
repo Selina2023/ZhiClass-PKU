@@ -2,7 +2,7 @@
 groupByYear: false
 showDate: false 
 showSummary: false
-title: "2021级智班成员"
+title: "2023级智班成员"
 ---
 
 # 
