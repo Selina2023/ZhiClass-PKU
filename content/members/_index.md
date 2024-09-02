@@ -1,6 +1,10 @@
 --- 
-groupByYear: false
+title: "Members"
+cascade:
+    groupByYear: false
+    showDate: false
+    showSummary: false
+    
 ---
 
-# 智班的小伙伴们
 ### Members of ZhiClass

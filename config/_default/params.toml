@@ -21,7 +21,7 @@ disableTextInHeader = false
 defaultBackgroundImage = "img/background.svg" # used as default for background images 
 defaultFeaturedImage = "img/3.png" # used as default for featured images in all articles
 
-# highlightCurrentMenuArea = true
+highlightCurrentMenuArea = true
 # smartTOC = true
 # smartTOCHideUnfocusedChildren = true
 

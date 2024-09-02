@@ -123,3 +123,6 @@ publications:
 - 我们不需要fork，可以换一下submodule的源
 - 写一个从bib到research index.md的python脚本
 - homepage加入hugo模板支持与外链
+
+- 8月31日
+    - members删除示例文章（解决两个2023），设置members页面一页显示人数（30）
