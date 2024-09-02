@@ -1,3 +1,3 @@
 ---
-cardView: true
+cardView: false
 ---
