@@ -76,6 +76,8 @@
       </a>
   {{ else }}
   <!-- 当页为成员时的 list 模板-->
+  {{ $specialStyles := resources.Get "css/memberlist.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $specialStyles.RelPermalink }}" integrity="{{ $specialStyles.Data.Integrity }}">
   <div>
     <a href="{{ .RelPermalink }}" class="min-w-full">
       <div class="min-h-full no-border rounded overflow-hidden relative">
