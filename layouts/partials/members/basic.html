@@ -8,7 +8,7 @@
                 <!-- Profile Image and Basic Information -->
                 <div class="col-12 col-lg-4">
                     <div id="profile">
-                        <!--检测是否存在image，如果存在则展示，否则查找feature图片，如果有则展示，都没有则展示site默认图片-->
+                        <!--检测是否存在image，如果存在则展示，否则查找feature图片，如果有则展示-->
                         {{- with $.Params.images -}}
                         {{- range first 6 . }}
                         <meta property="og:image" content="{{ . | absURL }}" />{{ end -}}
